@@ -1,0 +1,46 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../images/background.jpg");
+    font-family: 'Maiden Orange', cursive;
+}
+.jumbotron{
+    background: rgb(146, 190, 226);
+}
+
+.display-4{
+    font-size: 80px;
+    text-align: center;
+}
+
+.lead{
+    font-size: 35px;
+    text-align: center;
+}
+
+#startBtnDiv{
+    text-align: center;
+
+}
+
+#results{
+    text-align: center;
+    font-size: 25px;
+}
+
+#options{
+    font-size: 25px;
+}
+
+#options:hover{
+    background-color: rgb(232, 27, 198);
+	border-color: rgb(228, 32, 186);
+}
+
+#startBtn:hover{
+
+    background-color: rgb(232, 27, 198);
+	border-color: rgb(228, 32, 186);
+}
