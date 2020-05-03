@@ -20,26 +20,18 @@ body{
     text-align: center;
 }
 
-#startBtnDiv{
+#startBtnDiv, #optionsBtn, #playagainDiv{
     text-align: center;
 
 }
 
-#results{
+#resultsDiv{
     text-align: center;
     font-size: 25px;
 }
 
-#options{
-    font-size: 25px;
-}
 
-#options:hover{
-    background-color: rgb(232, 27, 61);
-	border-color: rgb(235, 25, 88);
-}
-
-#startBtn:hover{
+#startBtn:hover,#optionsBtn:hover, #playagainBtn:hover{
 
     background-color:rgb(232, 27, 61);
 	border-color: rgb(235, 25, 88);
