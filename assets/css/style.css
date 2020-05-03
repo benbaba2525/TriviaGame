@@ -3,7 +3,7 @@
 }
 
 body{
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/wp4984931.jpg");
     font-family: 'Maiden Orange', cursive;
 }
 .jumbotron{
@@ -35,12 +35,12 @@ body{
 }
 
 #options:hover{
-    background-color: rgb(232, 27, 198);
-	border-color: rgb(228, 32, 186);
+    background-color: rgb(232, 27, 61);
+	border-color: rgb(235, 25, 88);
 }
 
 #startBtn:hover{
 
-    background-color: rgb(232, 27, 198);
-	border-color: rgb(228, 32, 186);
+    background-color:rgb(232, 27, 61);
+	border-color: rgb(235, 25, 88);
 }
