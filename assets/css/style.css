@@ -20,7 +20,7 @@ body{
     text-align: center;
 }
 
-#startBtnDiv, #optionsBtn, #playagainDiv{
+#startBtnDiv,#playagainDiv{
     text-align: center;
 
 }
@@ -31,8 +31,19 @@ body{
 }
 
 
-#startBtn:hover,#optionsBtn:hover, #playagainBtn:hover{
+#startBtn:hover,#choiceDiv:hover, #playagainBtn:hover{
 
     background-color:rgb(232, 27, 61);
 	border-color: rgb(235, 25, 88);
+}
+
+#choiceDiv{
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+    font-size: 25px;
+    width: 400px;
+    height: 40px;
+    background-color: rgb(36, 136, 203);
+    border: 1px solid;
 }
