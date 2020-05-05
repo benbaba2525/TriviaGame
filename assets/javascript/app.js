@@ -113,7 +113,37 @@ $(document).ready(function(){
 
     //Until user answer all question then show the result + Play Again Button
 
+    // Create function for Correct Answer , Incorrect Answer and Unanswered the question
+    function correctAnswer(){
+    $("#message").text("Correct!!");
+    var correctSound = new Audio("assets/audio/Correct AnswerIdea Sound Effects.mp3");
+        correctSound.play();
+        correct++;
+        stop();
+        $(".choiceDiv").hide();
+        //reset();
+      
+  };
+  
+  // Create function a game loss,  player loss value losses + 1
+  function wrongAnswer(){
+    $("#message").text("Your Answer is Incorrect!!");
+    var incorrectSound = new Audio("assets/audio/Wrong Answer - Sound Effect [HD].mp3");
+        incorrectSound.play();
+        incorrect++;
+        stop();
+        $(".choiceDiv").hide();
+        //reset ();
     
+  };
+  
+  function unansweredQuestion() {
+    unanswered++;
+    $("#message").text("Time Out !! You failed to choose the answer");
+    $(".choiceDiv").hide();
+    
+    //reset();
+}
 
 
 
@@ -142,42 +172,22 @@ $(document).ready(function(){
     userAnswer = parseInt( $( this ).attr( "answerVal" ) );
 
     if (userAnswer === computerPick.answer) {
-      alert("Correct");
+      correctAnswer();
      } else {
-       alert("WTF");
+      wrongAnswer();
      } 
 
 
      //Checking on console.log
      console.log(userAnswer);
+    
+
 
    });
 
   }
 
-  /* $( "#choicePage" ).on( "click", function() {
-
-     userAnswer = parseInt( $( this ).is( ".answerVal" ) );
-
-    if (userAnswer === computerPick.answer) {
-     alert("Correct");
-    } else {
-      alert("WTF");
-    } 
-  });*/
-
-
-
-
-
-
-
   
-    
-      
-
-
-   
 
     // TODO: If the count is the same as the length of the image array, reset the count to 0.
     //if (countQuestions === triviaGame.length) {
@@ -213,6 +223,8 @@ $(document).ready(function(){
       stop();
     var timeUp = new Audio("assets/audio/gameover.mp3");
         timeUp.play();
+        clearInterval(intervalId);
+        unansweredQuestion();
       
     }
   };
