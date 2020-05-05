@@ -5,63 +5,62 @@ $(document).ready(function(){
     var triviaGame = [
         {
             question: "What Christmas Ballet is the most famous of all?",
-            answer:    "1",
-            choice:   ["Rudolph's Surprise","The Nutcracker", "Mr. and Mrs. Claus", "Frosty Goes to New York" ]
-
+            choice:   ["Rudolph's Surprise","The Nutcracker", "Mr. and Mrs. Claus", "Frosty Goes to New York" ],
+            answer:    1
         },
 
         {
             question: "Where was Mommy kissing Santa Claus?",
-            answer:    "2",
-            choice:   ["On the Corner", "In the Bedroom", "Under the Mistletoe", "In a Dark Alley"]
+            choice:   ["On the Corner", "In the Bedroom", "Under the Mistletoe", "In a Dark Alley"],
+            answer:    2
         },
 
         {
             question: "Who wrote the song \"Here Comes Santa Claus\"?",
-            answer:    "1",
-            choice:   ["Michael Jackson", "Gene Autry", "Persy Douglas", "Leroy Jones"]
+            choice:   ["Michael Jackson", "Gene Autry", "Persy Douglas", "Leroy Jones"],
+            answer:    1,
         },
 
         {
             question: "What does Alvin want for Christmas?",
-            answer:    "2",
-            choice:   ["An iPad", "A Bottle of Rum", "A Hula Hoop", "A New Car"]
+            choice:   ["An iPad", "A Bottle of Rum", "A Hula Hoop", "A New Car"],
+            answer:    2,
         },
 
         {
             question: "What should little children leave out for Santa on Christmas Eve?",
-            answer:    "0",
-            choice:   ["Cookies and Milk", "A Bottle of Wine", "Chewing Gum", "Chedder Cheese"]
+            choice:   ["Cookies and Milk", "A Bottle of Wine", "Chewing Gum", "Chedder Cheese"],
+            answer:    0,
         },
 
         {
             question: "What is Frosty the Snowman's nose made of?",
-            answer:    "2",
-            choice:   ["A Carrot", "A Potato", "A Button", "A Rock"]
+            choice:   ["A Carrot", "A Potato", "A Button", "A Rock"],
+            answer:    2,
         },
 
         {
             question: "What is Ebenezer?",
-            answer:    "2",
-            choice:   ["The Milk Man", "The 23rd President", "The Scroogr", "Mrs. Claus's Secret Friend"]
+            choice:   ["The Milk Man", "The 23rd President", "The Scroogr", "Mrs. Claus's Secret Friend"],
+            answer:    2,
         },
 
         {
             question: "What color is the Grinch?",
-            answer:    "0",
-            choice:   ["Green", "Blue", "White", "Black"]
+            choice:   ["Green", "Blue", "White", "Black"],
+            answer:    0,
         },
 
         {
             question: "Which reindeer's name starts with a \"B\" ?",
-            answer:   "3",
-            choice:  ["Bart", "Burt", "Bodog", "Blitzen"]
+            choice:  ["Bart", "Burt", "Bodog", "Blitzen"],
+            answer:   3,
         },
 
         {
             question: "Which reindee does not belong below?",
-            answer:   "2",
-            choice:  ["Dancer", "Comet", "Roger", "Dasher"]
+            choice:  ["Dancer", "Comet", "Roger", "Dasher"],
+            answer:   2,
 
        }];
     
@@ -70,7 +69,7 @@ $(document).ready(function(){
       var unanswered = 0;
       var randomTrivia;
       var computerPick;
-      var userAnswer=0;
+      var userAnswer="";
       var timer = 15;     //  Interval Demonstration ,  Set our time counter to 15.
       var intervalId;     //  Variable that will hold our interval ID when we execute ,   the "run" function
       var countQuestions = 0;
@@ -126,8 +125,8 @@ $(document).ready(function(){
      //Random Trivia Game
        randomTrivia = Math.floor(Math.random()*(triviaGame.length));
 
-    //Show random question
        computerPick = triviaGame[randomTrivia];
+      //Show random question
        $("#questionP").html("<p>" + computerPick.question + "</p>");
 
    //Show answer choices
@@ -139,18 +138,38 @@ $(document).ready(function(){
     $("#choicePage").append(answerChoice);
    }
     
+   $(".choiceDiv").on("click", function(){
+    userAnswer = parseInt( $( this ).attr( "answerVal" ) );
+
+    if (userAnswer === computerPick.answer) {
+      alert("Correct");
+     } else {
+       alert("WTF");
+     } 
+
+
+     //Checking on console.log
+     console.log(userAnswer);
+
+   });
+
   }
-  
 
-   /*$( "#choicePage" ).on( "click", function() {
+  /* $( "#choicePage" ).on( "click", function() {
 
-     userAnswer = ( $( this ).is( ".choiceDiv" ) );
+     userAnswer = parseInt( $( this ).is( ".answerVal" ) );
 
     if (userAnswer === computerPick.answer) {
      alert("Correct");
-    } else if (userAnswer !== computerPick.answer){
+    } else {
       alert("WTF");
-    } */
+    } 
+  });*/
+
+
+
+
+
 
 
   
