@@ -31,14 +31,15 @@ body{
 }
 
 
-#startBtn:hover,#choiceDiv:hover, #playagainBtn:hover{
+#startBtn:hover,#playagainBtn:hover, .choiceDiv:hover{
 
     background-color:rgb(232, 27, 61);
 	border-color: rgb(235, 25, 88);
 }
 
-#choiceDiv{
+.choiceDiv{
     margin: auto;
+    margin-bottom: 10px;
     text-align: center;
     padding: 5px;
     font-size: 25px;
@@ -47,3 +48,4 @@ body{
     background-color: rgb(36, 136, 203);
     border: 1px solid;
 }
+
