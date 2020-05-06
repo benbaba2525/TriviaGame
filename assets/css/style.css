@@ -49,3 +49,8 @@ body{
     border: 1px solid;
 }
 
+#ansImage{
+    margin: auto;
+    text-align: center;
+}
+
