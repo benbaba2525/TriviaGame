@@ -102,11 +102,11 @@ $(document).ready(function(){
   //When user answer the question or time out then go to next question
   displayQuestion();
 
-  //Then go to the next question
+//Then go to the next question
 for(var i=0; i < triviaGame.length; i++){
  holder.push(triviaGame[i]);
 }
-  //Check if user answer all question then show the result + Play Again Button
+  
 
  // Reset the Game
 
@@ -258,10 +258,7 @@ function unansweredQuestion() {
 }
 
 
-  // TODO: If the count is the same as the length of the image array, reset the count to 0.
-  //if (countQuestions === triviaGame.length) {
-    // Show the result
-  //}
+  
 function nextQuestion(){
     newArray.push(computerPick);
     triviaGame.splice(randomTrivia,1);
@@ -275,23 +272,35 @@ function nextQuestion(){
 
 // If the countQuestion is the same as index length, return the result if not continue displayQuestion.
 if((correct + incorrect + unanswered) === countQuestions){
-           $('#questionP').remove();
-           $('#time-remaining').remove();
-           $('#ansImage').remove();
-           $('#answerP').append('<h4 class= answersAll end>CORRECT ANSWERS: ' + correct + '</h4>');
-           $('#answerP').append('<h4 class= answersAll end>INCORRECT ANSWERS: ' + incorrect + '</h4>');
-           $('#answerP').append('<h4 class= answersAll end>UNANSWERED QUESTIONS: ' + unanswered + '</h4>');
 
+         var timeUp = new Audio("assets/audio/gameover.mp3");
+         timeUp.play();
+
+           $("#questionP").remove();
+           $("#time-remaining").remove();
+           $("#ansImage").remove();
+           $("#resultP").append("<h2><strong>Here is Results of Your Quiz</strong></h2>");
+           $("#resultP").append("<h4>Correct Answers: " + correct + "</h4>");
+           $("#resultP").append("<h4>Incorrect Answers: " + incorrect + "</h4>");
+           $("#resultP").append("<h4>Unanswered Questions: " + unanswered + "</h4>");
+           $("#playagainBtn").show();
+           resetGame();
+           
         }else{
             displayQuestion();
         }
 
-    },3000);
+    },4000);
 };
   
 
 });
 
+function resetGame(){
+    setTimeout(function () {
+        location.reload();
+    }, 10000);
+};
 
 
 });
