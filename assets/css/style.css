@@ -20,7 +20,7 @@ body{
     text-align: center;
 }
 
-#startBtnDiv,#playagainDiv{
+#startBtnDiv,#startOverDiv{
     text-align: center;
 
 }
@@ -31,7 +31,7 @@ body{
 }
 
 
-#startBtn:hover,#playagainBtn:hover, .choiceDiv:hover{
+#startBtn:hover,#startOverBtn:hover, .choiceDiv:hover{
 
     background-color:rgb(232, 27, 61);
 	border-color: rgb(235, 25, 88);
