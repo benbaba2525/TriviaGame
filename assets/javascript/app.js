@@ -128,16 +128,24 @@ $(document).ready(function(){
      userAnswer = parseInt($( this ).attr( "answerVal" ));
    
      if (userAnswer === computerPick.answer) {
+
        correctAnswer();
+  //Checking on console.log
+  console.log("Your answer is correct");
+
       } else {
+
+  //Checking on console.log
+  console.log("Your answer is incorrect");
        wrongAnswer();
        
       } 
    
     //Checking on console.log
       console.log(computerPick.question);
-      console.log(answerChoice);
+      console.log(computerPick.choice);
       console.log(userAnswer);
+      
       
     });
    
@@ -161,6 +169,9 @@ $(document).ready(function(){
       
       timer--;
 
+      //Checking on console.log
+      console.log("Time Remaining : " + timer);
+
       //When 5 second left alert with red color on text content
       setTimeout(fiveSeconds, 1000 * 10);
       
@@ -172,11 +183,14 @@ $(document).ready(function(){
       var timeUp = new Audio("assets/audio/gameover.mp3");
           timeUp.play();
           unansweredQuestion();
+
+          //Checking on console.log
+          console.log("Time is up !!")
          
         }
 
       };
-      
+
       // 5 secound left alert with red color on text content
       
       function fiveSeconds() {
@@ -188,7 +202,6 @@ $(document).ready(function(){
       running = false;
       clearInterval(intervalId);
       };
-      
       
       
   
@@ -207,7 +220,7 @@ $(document).ready(function(){
         $("#message").show();
         $("#ansImage").show();
         nextQuestion();
-      
+
   };
   
  // Function when the answer is incorrect  
@@ -237,7 +250,7 @@ $(document).ready(function(){
     $("#message").show();
     $("#ansImage").show();
     nextQuestion();
-    
+   
   };
   
   
@@ -267,7 +280,13 @@ $(document).ready(function(){
              $("#resultP").append("<h4>Incorrect Answers: " + incorrect + "</h4>");
              $("#resultP").append("<h4>Unanswered Questions: " + unanswered + "</h4>");
              $("#startOverBtn").show();
-            
+    
+    //Checking on console.log
+    console.log("Your Results");
+    console.log("Correct Answers:  " + correct);
+    console.log("Incorrect Answers:  " + incorrect);
+    console.log("Unanswered Questions: " + unanswered);
+    
              
           }else{
               displayQuestion();
