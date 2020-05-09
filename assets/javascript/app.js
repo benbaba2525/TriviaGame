@@ -87,42 +87,34 @@ $(document).ready(function(){
       var holder = [];
       var countQuestions = triviaGame.length;
   
-    //Hiding  Choice Div and Play Again Button
-  
+   
+  //Hiding  Start Over Button
     $("#startOverBtn").hide();
      
    //Start Game
    $("#startBtn").on("click", function(){
     
-    //When click on start button , start button will disappear and turn to question page
-    $("#startBtn").hide();
+      $("#startBtn").hide();
+       displayQuestion();
   
-    //Display question and Multiple choice
-    //When user answer the question or time out then go to next question
-    displayQuestion();
-  
-  //Then go to the next question
-  for(var i=0; i < triviaGame.length; i++){
-   holder.push(triviaGame[i]);
-  }
+    });
     
-  
-   // Reset the Game
   
   //Display question and Multiple choice
   function displayQuestion(){
-      //Start Time Remaining
+
+  //Start Time Remaining
       runTimer();
       decrement();
-  
+
+  //Random TriviaGame
        randomTrivia = Math.floor(Math.random()*(triviaGame.length));
-      
-        computerPick = triviaGame[randomTrivia];
-       //Show random question
-        $("#questionP").html("<p>" + computerPick.question + "</p>");
+       computerPick = triviaGame[randomTrivia];
+
+ //Show random question    
+    $("#questionP").html("<p>" + computerPick.question + "</p>");
         
-  
-    //Show answer choices
+ //Show answer choices
     for ( var i = 0; i < computerPick.choice.length; i++){
      var answerChoice = $("<div>");
      answerChoice.addClass("choiceDiv");
@@ -130,7 +122,8 @@ $(document).ready(function(){
      answerChoice.attr("answerVal", i);
      $("#choicePage").append(answerChoice);
     }
-     
+
+// When click on answer choice will check the answer is correct or incorrect     
     $(".choiceDiv").on("click", function(){
      userAnswer = parseInt($( this ).attr( "answerVal" ));
    
@@ -141,11 +134,14 @@ $(document).ready(function(){
        
       } 
    
-      //Checking on console.log
+    //Checking on console.log
+      console.log(computerPick.question);
+      console.log(answerChoice);
       console.log(userAnswer);
+      
     });
    
-   }
+   };
   
   
    // Timer start count down, timer--
@@ -155,20 +151,19 @@ $(document).ready(function(){
       intervalId = setInterval(decrement, 1000);
       running = true;
       }
-      };
+    };
       
   //  The decrement function.
   function decrement() {
-      
-      //When 5 second left alert with red color on text content
-      setTimeout(fiveSeconds, 1000 * 10);
-      
       
       //  Show the time remaning
       $("#time-remaining").html("<p><i class='fa fa-clock-o' style='padding: 20px;color:black;' aria-hidden='true'></i> Time Remaining :  " + timer + "</p>");
       
       timer--;
-       
+
+      //When 5 second left alert with red color on text content
+      setTimeout(fiveSeconds, 1000 * 10);
+      
       //If time = 0 then stop the time
       
       if (timer === 0) {
@@ -178,18 +173,17 @@ $(document).ready(function(){
           timeUp.play();
           unansweredQuestion();
          
-        
-      }
+        }
+
       };
       
       // 5 secound left alert with red color on text content
       
       function fiveSeconds() {
       $("#time-remaining").html("<p style='color:red;'><i class='fa fa-clock-o' style='padding: 20px;color:red;' aria-hidden='true'></i> Time Remaining :  " + timer + "</p>");
-     
       };
       
-      //  The stop function
+    // Function to clear the time
       function stop() {
       running = false;
       clearInterval(intervalId);
@@ -200,8 +194,7 @@ $(document).ready(function(){
   
     // Create function to check Correct Answer , Incorrect Answer and Unanswered the question
   
-    //If user pick the correct answer, show message ,audio sound and picture
-    // to let user know that user pick the right answer , correct++
+// Function when answer is correct 
     function correctAnswer(){
     $("#message").html("Your Answer is <span style='color:green';>Correct!!     <i class='fa fa-check-square-o' aria-hidden='true'></i></span>");
     var correctSound = new Audio("assets/audio/Correct AnswerIdea Sound Effects.mp3");
@@ -214,13 +207,10 @@ $(document).ready(function(){
         $("#message").show();
         $("#ansImage").show();
         nextQuestion();
-        //reset();
-      
       
   };
   
-  //If user pick incorrect answer, show message ,audio sound and picture 
-  //to let user know that user pick the wrong answer , incorrect++
+ // Function when the answer is incorrect  
   function wrongAnswer(){
     $("#message").html("<p>Your Answer is <span style='color:red';>Incorrect!!    <i class='fa fa-times-circle' aria-hidden='true'></i></span> <br> The Correct Answer is  " + computerPick.choice[computerPick.answer]+"</p>" );
     var incorrectSound = new Audio("assets/audio/Wrong Answer - Sound Effect [HD].mp3");
@@ -233,13 +223,11 @@ $(document).ready(function(){
         $("#message").show();
         $("#ansImage").show();
         nextQuestion();
-        //reset ();
-       
+        
     
   };
   
-  //If time up user didn't pick the answer , show message ,audio sound and picture 
-  //to let user know that user pick didn't pick any answer , unanswered++
+// Function when user not answer the question  
   function unansweredQuestion() {
     unanswered++;
     $("#message").html("<span style='color:red';>Time Out !! You failed to choose the answer.</span> <br>  The Answer is  " + computerPick.choice[computerPick.answer]+"</p>");
@@ -249,12 +237,11 @@ $(document).ready(function(){
     $("#message").show();
     $("#ansImage").show();
     nextQuestion();
-    //reset();
     
-  }
+  };
   
   
-    
+// Function to display the next question    
   function nextQuestion(){
       newArray.push(computerPick);
       triviaGame.splice(randomTrivia,1);
@@ -266,7 +253,7 @@ $(document).ready(function(){
           $("#ansImage").empty();
           $("#message").empty();
   
-  // If the countQuestion is the same as index length, return the result if not continue displayQuestion.
+//When countQuestion is equal to index length, return the result if not continue displayQuestion.
   if((correct + incorrect + unanswered) === countQuestions){
   
            var timeUp = new Audio("assets/audio/gameover.mp3");
@@ -289,18 +276,16 @@ $(document).ready(function(){
       },4000);
   };
     
-  
-  });
-  
+// Function to reset the game
   function resetGame(){
       setTimeout(function () {
           location.reload();
       }, 100);
   };
+
   //Reset the game
-  $("#startOverBtn").on("click", function(){
-    resetGame();
-  });
+        $("#startOverBtn").on("click", function(){
+        resetGame();
+      });
     
-  
   });
