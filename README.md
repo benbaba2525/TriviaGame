@@ -25,7 +25,7 @@ On the final screen, show the number of correct answers, incorrect answers, and 
 <ul>
   <li>Kanyarut Pornamnuay</li> 
   <br><a target="_blank" rel="nofollow" href="https://github.com/benbaba2525">Visit My Github Profile</a>
-  <br><a target="_blank" rel="nofollow" href="https://benbaba2525.github.io/My-Portfolio/">Visit My Portfolio</a>
+  <br><a target="_blank" rel="nofollow" href="https://www.kanyarut.me/">Visit My Portfolio</a>
 </ul>
 
 <h2 style ="border-bottom:1px;">Acknowledgments</h2>
